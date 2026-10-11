@@ -4,7 +4,7 @@ description: "Manages task notes in a repository's .task-decisions/ folder - a b
 license: MIT
 compatibility: The helper scripts need Node.js 20 or newer and git; no dependencies, no network access.
 metadata:
-  version: "1.1.0" # x-release-please-version
+  version: "1.1.1" # x-release-please-version
 ---
 
 # Task decisions

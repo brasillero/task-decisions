@@ -33,7 +33,7 @@ That asks which agents and scope to use. To install without prompts, name the ag
 npx skills add brasillero/task-decisions --global --skill task-decisions --agent claude-code codex cursor --yes
 
 # Pinned to a release
-npx skills add 'brasillero/task-decisions#v1.1.0' --skill task-decisions --agent claude-code codex cursor --yes
+npx skills add 'brasillero/task-decisions#v1.1.1' --skill task-decisions --agent claude-code codex cursor --yes
 ```
 <!-- x-release-please-end -->
 
