@@ -6,7 +6,48 @@
       "package-name": "task-decisions",
       "changelog-path": "CHANGELOG.md",
       "include-component-in-tag": false,
-      "extra-files": ["skills/task-decisions/SKILL.md"]
+      "extra-files": [
+        "skills/task-decisions/SKILL.md",
+        "README.md"
+      ],
+      "changelog-sections": [
+        {
+          "type": "feat",
+          "section": "Features"
+        },
+        {
+          "type": "fix",
+          "section": "Bug Fixes"
+        },
+        {
+          "type": "perf",
+          "section": "Performance"
+        },
+        {
+          "type": "docs",
+          "section": "Documentation"
+        },
+        {
+          "type": "refactor",
+          "section": "Refactoring",
+          "hidden": true
+        },
+        {
+          "type": "test",
+          "section": "Tests",
+          "hidden": true
+        },
+        {
+          "type": "ci",
+          "section": "CI",
+          "hidden": true
+        },
+        {
+          "type": "chore",
+          "section": "Chores",
+          "hidden": true
+        }
+      ]
     }
   }
 }
