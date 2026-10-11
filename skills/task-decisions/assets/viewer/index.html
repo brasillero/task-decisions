@@ -93,6 +93,8 @@
   table.db td { border-bottom: 1px solid var(--border); padding: 6px 8px; vertical-align: top; }
   table.db tr.link { cursor: pointer; } table.db tr.link:hover td { background: var(--hover); }
   table.db .num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.db .date { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  table.db .empty { color: var(--faint); }
   .count { color: var(--faint); font-weight: 400; font-size: 14px; margin-left: 6px; }
 
   /* Entries (toggles) */
@@ -656,6 +658,9 @@ function homePage() {
     <div class="scroll"><table class="db"><thead><tr><th>Project</th><th class="num">Tasks</th><th class="num">Active</th><th class="num">Deferred</th><th class="num">Decisions in force</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`
 }
 
+/** A date for a table cell; empty and `—` show as a faint dash. */
+const dateCell = (value) => value && value !== "—" ? esc(value) : '<span class="empty">—</span>'
+
 function projectPage(p) {
   crumbs([[p.name]])
   const f = p.fields
@@ -667,7 +672,7 @@ function projectPage(p) {
     const c = counts(t)
     return `<tr class="link" data-href="${href(p.slug, t.slug)}"><td><strong>${esc(t.title)}</strong><br><span class="muted">${esc(t.slug)}</span></td>
       <td>${t.state ? tag(t.state) : ""}</td><td class="num">${c.active}</td><td class="num">${c.deferred}</td><td class="num opt">${c.closed}</td><td class="num opt">${c.decisions}</td>
-      <td class="muted opt">${esc(t.fields.start ?? "")}${t.fields.end && t.fields.end !== "—" ? " → " + esc(t.fields.end) : ""}</td>
+      <td class="muted opt date">${dateCell(t.fields.start)}</td><td class="muted opt date">${dateCell(t.fields.end)}</td>
       <td>${t.problems.length ? `<span class="warn">${icon("triangle-alert")} ${t.problems.length}</span>` : ""}</td></tr>`
   }).join("")
   const open = p.tasks.flatMap((t) => t.backlog.open.map((e) => ({ e, t })))
@@ -677,7 +682,7 @@ function projectPage(p) {
   return `<div class="icon">${icon("folder", 48)}</div><h1 class="title">${esc(p.name)}</h1>${head}${problemsBox(p.problems)}<hr class="sep">
     <div class="md">${markdown(p.body)}</div>
     <h2>Tasks<span class="count">${p.tasks.length}</span></h2>
-    <div class="scroll"><table class="db"><thead><tr><th>Task</th><th>State</th><th class="num">Active</th><th class="num">Deferred</th><th class="num opt">Closed</th><th class="num opt">Decisions</th><th class="opt">Dates</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+    <div class="scroll"><table class="db"><thead><tr><th>Task</th><th>State</th><th class="num">Active</th><th class="num">Deferred</th><th class="num opt">Closed</th><th class="num opt">Decisions</th><th class="opt">Start</th><th class="opt">End</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
     <h2>Open items<span class="count">${open.length}</span></h2>
     <div class="scroll"><table class="db"><thead><tr><th>Ref</th><th>Item</th><th>State</th><th class="opt">Type</th><th class="opt">Area</th></tr></thead><tbody>${openRows}</tbody></table></div>`
 }
