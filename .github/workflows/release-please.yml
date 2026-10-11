@@ -1,0 +1,18 @@
+# Keeps a release PR open with the next version and changelog, built from
+# Conventional Commits on main (fix: → patch, feat: → minor, feat!: → major).
+# Merging that PR tags the release and publishes it on GitHub.
+name: release-please
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4

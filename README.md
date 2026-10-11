@@ -86,6 +86,8 @@ node skills/task-decisions/scripts/serve.mjs examples/shop-web
 node --test tests/*.test.mjs   # the scripts: check and viewer
 ```
 
+Releases are automated with [release-please](https://github.com/googleapis/release-please): commit messages follow [Conventional Commits](https://www.conventionalcommits.org) (`fix:` → patch, `feat:` → minor, `feat!:` or `BREAKING CHANGE:` → major; `docs:`, `test:`, `chore:` release nothing). On every push to `main` a release PR collects the changes, with the next version and changelog; merging it tags the release and publishes it. See [`CHANGELOG.md`](CHANGELOG.md) and the [releases](https://github.com/brasillero/task-decisions/releases).
+
 [`evals/`](evals/README.md) holds behaviour cases for agents using the skill: prompts, starting state and what a correct run does.
 
 ## Licence
