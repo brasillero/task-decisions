@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/brasillero/task-decisions/compare/v1.1.0...v1.1.1) (2026-10-11)
+
+
+### Documentation
+
+* agent instructions for this repository ([298f4d4](https://github.com/brasillero/task-decisions/commit/298f4d42d3d4c3f7ad53a33f3e3e5c171c31888d))
+* clearer README with install up front, how it works, and a screenshot of the viewer ([d17c917](https://github.com/brasillero/task-decisions/commit/d17c917baeedcadb5fe575b3ef0f1826bc0e99b1))
+
 ## [1.1.0](https://github.com/brasillero/task-decisions/compare/v1.0.0...v1.1.0) (2026-10-11)
 
 
